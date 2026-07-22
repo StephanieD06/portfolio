@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stephanie Dahunsi, Product Designer</title>
+<meta name="description" content="Stephanie Dahunsi is a Product Designer helping startups build intuitive digital products that increase engagement, improve usability, and drive business growth." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111;
+    --paper:#ffffff;
+    --accent:#6D5EF7;
+    --accent-soft:#EFECFE;
+    --green:#16A34A;
+    --gray-50:#F7F7F9;
+    --gray-100:#F0F0F3;
+    --gray-300:#D8D8DE;
+    --gray-500:#8A8A94;
+    --gray-700:#4A4A52;
+    --ring: rgba(109,94,247,.35);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'General Sans','Inter',sans-serif;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--gray-100);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .logo{font-family:'General Sans',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.01em;}
+  .logo span{color:var(--accent);}
+  .nav-links{display:flex; gap:36px; list-style:none; margin:0; padding:0;}
+  .nav-links a{font-size:14.5px; font-weight:500; color:var(--gray-700); position:relative; padding:4px 0;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease;}
+  .nav-links a:hover::after{transform:scaleX(1);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:999px; font-size:14.5px; font-weight:600;
+    border:1px solid transparent; transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--ink); color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(17,17,17,.22);}
+  .btn-accent{background:var(--accent); color:#fff;}
+  .btn-accent:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(109,94,247,.35);}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--gray-300);}
+  .btn-ghost:hover{border-color:var(--ink);}
+  .nav-cta{display:none;}
+  @media(min-width:900px){.nav-cta{display:inline-flex;}}
+  .menu-btn{display:flex; background:none; border:none; padding:8px;}
+  @media(min-width:900px){.menu-btn{display:none;} }
+  @media(max-width:899px){.nav-links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; padding:96px 0 80px; background:
+    radial-gradient(circle at 82% 12%, var(--accent-soft) 0%, rgba(239,236,254,0) 55%);
+  }
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;} .hero{padding:56px 0 64px;}}
+  .avail-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:600; color:var(--green);
+    background:#EAF7EF; padding:7px 14px; border-radius:999px; margin-bottom:16px;
+  }
+  .avail-dot{width:7px; height:7px; border-radius:50%; background:var(--green); position:relative;}
+  .avail-dot::after{content:''; position:absolute; inset:-4px; border-radius:50%; background:var(--green); opacity:.35; animation:pulse 2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1); opacity:.35;} 50%{transform:scale(1.6); opacity:0;}}
+  @media (prefers-reduced-motion: reduce){.avail-dot::after{animation:none; display:none;}}
+  .eyebrow{
+    display:inline-flex; align-items:flex-start; gap:8px;
+    font-size:13px; font-weight:600; color:var(--accent); line-height:1.5;
+    background:var(--accent-soft); padding:9px 16px; border-radius:18px; margin-bottom:22px;
+    max-width:340px;
+  }
+  .eyebrow::before{content:''; width:6px; height:6px; min-width:6px; border-radius:50%; background:var(--accent); margin-top:6px;}
+  .hero h1{font-size:clamp(34px,4.6vw,56px); line-height:1.06;}
+  .hero h1 .accent-word{color:var(--accent);}
+  .hero p.lede{font-size:18px; line-height:1.6; color:var(--gray-700); max-width:520px; margin:22px 0 32px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-visual{position:relative;}
+  .hero-photo-card{
+    position:relative; border-radius:28px; overflow:hidden;
+    background:var(--gray-100); aspect-ratio:4/4.7;
+    box-shadow:0 30px 60px -20px rgba(17,17,17,.25);
+  }
+  .hero-photo-card img{width:100%; height:100%; object-fit:cover;}
+  .annot{
+    position:absolute; background:#fff; border:1px solid var(--gray-100);
+    border-radius:12px; padding:9px 13px; font-size:12.5px; font-weight:600;
+    box-shadow:0 12px 26px rgba(17,17,17,.14); display:flex; align-items:center; gap:7px;
+    animation:floaty 5s ease-in-out infinite;
+  }
+  .annot .dot{width:7px;height:7px;border-radius:50%;}
+  .annot.a1{ top:8%; left:-13%; animation-delay:.2s;}
+  .annot.a2{ bottom:16%; right:-14%; animation-delay:1s;}
+  .annot.a3{ bottom:-6%; left:8%; animation-delay:1.8s;}
+  .annot .dot.green{background:var(--green);}
+  .annot .dot.purple{background:var(--accent);}
+  @media(max-width:900px){.annot{display:none;}}
+  @keyframes floaty{0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);}}
+
+  /* ---------- SOCIAL PROOF ---------- */
+  .proof{padding:52px 0; border-top:1px solid var(--gray-100); border-bottom:1px solid var(--gray-100); background:var(--gray-50);}
+  .proof-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;}
+  @media(max-width:700px){.proof-grid{grid-template-columns:repeat(2,1fr);}}
+  .proof-num{font-family:'General Sans',sans-serif; font-size:clamp(26px,4vw,38px); font-weight:800; color:var(--ink);}
+  .proof-label{font-size:13px; color:var(--gray-500); font-weight:500; margin-top:4px;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:100px 0;}
+  @media(max-width:700px){section{padding:64px 0;}}
+  .sec-head{max-width:600px; margin-bottom:56px;}
+  .sec-eyebrow{font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); margin-bottom:14px; display:block;}
+  .sec-head h2{font-size:clamp(26px,3.4vw,38px); line-height:1.15;}
+  .sec-head p{color:var(--gray-700); font-size:16.5px; line-height:1.6; margin-top:14px;}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:28px;}
+  @media(max-width:800px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{
+    border:1px solid var(--gray-100); border-radius:22px; overflow:hidden; background:#fff;
+    transition:transform .35s ease, box-shadow .35s ease; display:flex; flex-direction:column;
+  }
+  .proj-card:hover{transform:translateY(-6px); box-shadow:0 24px 48px -18px rgba(17,17,17,.22);}
+  .proj-thumb{aspect-ratio:16/11; overflow:hidden; background:var(--gray-100);}
+  .proj-thumb img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .proj-card:hover .proj-thumb img{transform:scale(1.05);}
+  .proj-body{padding:26px 26px 28px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .proj-industry{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); display:flex; align-items:center; justify-content:space-between; gap:8px;}
+  .concept-tag{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--gray-500); background:var(--gray-100); padding:4px 9px; border-radius:999px;}
+  .proj-body h3{font-size:20px;}
+  .proj-body p{color:var(--gray-700); font-size:14.5px; line-height:1.55; margin:0; flex:1;}
+  .proj-link{font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:6px; margin-top:6px;}
+  .proj-link svg{transition:transform .2s ease;}
+  .proj-card:hover .proj-link svg{transform:translateX(4px);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:center;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about-photo{border-radius:22px; overflow:hidden; aspect-ratio:4/4.6; background:var(--gray-100);}
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about-quote{font-family:'General Sans',sans-serif; font-size:clamp(20px,2.4vw,27px); line-height:1.35; font-weight:600; margin-bottom:26px;}
+  .about-quote span{color:var(--accent);}
+  .about-body p{color:var(--gray-700); font-size:16px; line-height:1.75; margin:0 0 16px;}
+  .about-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;}
+  .tag{font-size:13px; font-weight:600; background:var(--gray-50); border:1px solid var(--gray-100); padding:8px 14px; border-radius:999px; color:var(--gray-700);}
+
+  /* ---------- SERVICES ---------- */
+  .serv-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  @media(max-width:900px){.serv-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.serv-grid{grid-template-columns:1fr;}}
+  .serv-card{border:1px solid var(--gray-100); border-radius:20px; padding:30px 24px; transition:border-color .25s ease, transform .25s ease;}
+  .serv-card:hover{border-color:var(--accent); transform:translateY(-4px);}
+  .serv-icon{width:44px; height:44px; border-radius:12px; background:var(--accent-soft); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+  .serv-card h3{font-size:17px; margin-bottom:8px;}
+  .serv-card p{font-size:14px; color:var(--gray-700); line-height:1.55; margin:0;}
+
+  /* ---------- PROCESS ---------- */
+  .process-wrap{background:var(--ink); border-radius:28px; padding:64px 48px; color:#fff;}
+  @media(max-width:700px){.process-wrap{padding:44px 22px;}}
+  .process-wrap .sec-head h2{color:#fff;}
+  .process-wrap .sec-head p{color:#B7B7BE;}
+  .process-list{display:flex; flex-direction:column;}
+  .proc-step{display:grid; grid-template-columns:70px 1fr; gap:20px; padding:22px 0; border-top:1px solid rgba(255,255,255,.12); align-items:baseline;}
+  .proc-step:last-child{border-bottom:1px solid rgba(255,255,255,.12);}
+  .proc-num{font-family:'General Sans',sans-serif; font-weight:800; font-size:15px; color:var(--accent);}
+  .proc-text h4{font-family:'General Sans',sans-serif; font-size:18px; font-weight:700; margin-bottom:4px;}
+  .proc-text p{font-size:14px; color:#B7B7BE; margin:0; line-height:1.5;}
+
+  /* ---------- WHY ---------- */
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:800px){.why-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+  .why-item{display:flex; gap:14px; align-items:flex-start; padding:22px; border-radius:16px; background:var(--gray-50);}
+  .why-check{width:26px; height:26px; border-radius:50%; background:var(--green); flex:none; display:flex; align-items:center; justify-content:center; margin-top:2px;}
+  .why-item h4{font-size:15.5px; margin-bottom:4px;}
+  .why-item p{font-size:13.5px; color:var(--gray-700); margin:0; line-height:1.5;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:900px){.test-grid{grid-template-columns:1fr; max-width:520px;}}
+  .test-grid-2{grid-template-columns:repeat(2,1fr); max-width:800px; margin:0 auto;}
+  @media(max-width:700px){.test-grid-2{grid-template-columns:1fr; max-width:420px;}}
+  .test-card{border:1px solid var(--gray-100); border-radius:20px; padding:28px; background:#fff;}
+  .stars{color:var(--accent); font-size:14px; letter-spacing:2px; margin-bottom:14px;}
+  .test-card p.quote{font-size:15px; line-height:1.65; color:var(--gray-700); margin:0 0 22px; font-style:italic;}
+  .test-person{display:flex; align-items:center; gap:12px;}
+  .test-avatar{width:42px; height:42px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-family:'General Sans'; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:14px;}
+  .test-person strong{display:block; font-size:14px;}
+  .test-person span{display:block; font-size:12.5px; color:var(--gray-500);}
+  .test-note{margin-top:20px; font-size:13px; color:var(--gray-500); text-align:center;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:56px;}
+  @media(max-width:860px){.contact-wrap{grid-template-columns:1fr;}}
+  .contact-info h2{font-size:clamp(26px,3.4vw,36px); margin-bottom:16px;}
+  .contact-info p{color:var(--gray-700); font-size:16px; line-height:1.65; margin-bottom:14px;}
+  .contact-info p.warm-line{color:var(--ink); font-weight:500;}
+  .contact-info p:last-of-type{margin-bottom:28px;}
+  .contact-alt{display:flex; flex-direction:column; gap:14px;}
+  .contact-alt a{display:flex; align-items:center; gap:12px; font-size:14.5px; font-weight:600; padding:12px 0; border-bottom:1px solid var(--gray-100);}
+  .contact-alt a svg{color:var(--accent);}
+  .form-card{background:var(--gray-50); border-radius:24px; padding:36px;}
+  @media(max-width:500px){.form-card{padding:24px;}}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  @media(max-width:520px){.form-row{grid-template-columns:1fr;}}
+  .field label{display:block; font-size:13px; font-weight:600; margin-bottom:7px; color:var(--gray-700);}
+  .field input, .field select, .field textarea{
+    width:100%; padding:13px 14px; border-radius:10px; border:1px solid var(--gray-300);
+    font-family:inherit; font-size:14.5px; background:#fff; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--accent); box-shadow:0 0 0 4px var(--ring); outline:none;}
+  .field{margin-bottom:16px;}
+  .form-card .btn{width:100%; justify-content:center; padding:14px; font-size:15px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--gray-100); padding:44px 0;}
+  .foot-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .foot-links{display:flex; gap:26px; list-style:none; padding:0; margin:0;}
+  .foot-links a{font-size:14px; color:var(--gray-700);}
+  .foot-links a:hover{color:var(--ink);}
+  .foot-social{display:flex; gap:16px;}
+  .foot-social a{width:36px; height:36px; border-radius:50%; background:var(--gray-50); display:flex; align-items:center; justify-content:center; color:var(--ink); transition:background .2s ease;}
+  .foot-social a:hover{background:var(--accent-soft); color:var(--accent);}
+  .copyright{font-size:13px; color:var(--gray-500); text-align:center; margin-top:30px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo">Stephanie<span>.</span>Dahunsi</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary nav-cta">Book a Discovery Call</a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <div class="avail-badge"><span class="avail-dot"></span>Available for freelance projects</div>
+      <span class="eyebrow">Product Designer helping startups build products people actually enjoy using</span>
+      <h1>Designing digital experiences <span class="accent-word">users love</span> and businesses grow from.</h1>
+      <p class="lede">I'm Stephanie Dahunsi. I help startups and SaaS teams turn fuzzy ideas into intuitive websites and mobile apps, grounded in research and built to convert.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-ghost">View My Work</a>
+        <a href="#contact" class="btn btn-accent">Book a Free Discovery Call</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal in">
+      <div class="hero-photo-card">
+        <img src="https://favoura21.github.io/stephanie-dahunsi-portfolio/assets/picture.jpeg" alt="Portrait of Stephanie Dahunsi" />
+      </div>
+      <div class="annot a1"><span class="dot purple"></span>44px tap target</div>
+      <div class="annot a2"><span class="dot green"></span>AA contrast ✓</div>
+      <div class="annot a3"><span class="dot purple"></span>Primary CTA</div>
+    </div>
+  </div>
+</header>
+
+<section class="proof" aria-label="Experience summary">
+  <div class="wrap proof-grid">
+    <div class="reveal">
+      <div class="proof-num">2+</div>
+      <div class="proof-label">Years Experience</div>
+    </div>
+    <div class="reveal">
+      <div class="proof-num">6+</div>
+      <div class="proof-label">Design Projects</div>
+    </div>
+    <div class="reveal">
+      <div class="proof-num">2+</div>
+      <div class="proof-label">Business Clients</div>
+    </div>
+    <div class="reveal">
+      <div class="proof-num">100%</div>
+      <div class="proof-label">Responsive Designs</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Featured Work</span>
+      <h2>Case studies that show the thinking, not just the pixels.</h2>
+      <p>A mix of client work and self-directed concept projects, each one an exercise in research-led interface design.</p>
+    </div>
+    <div class="proj-grid">
+
+      <article class="proj-card reveal">
+        <div class="proj-thumb"><img src="images/Hero Section (11).png" alt="PayUrDues"></div>
+        <div class="proj-body">
+          <span class="proj-industry">Fintech · Web App</span>
+          <h3>PayUrDues</h3>
+          <p>A dues payments and voting platform for associations, cooperatives and community groups, built to bring dues collection, donations and voting into one secure place.</p>
+          <a href="PayUrDues.html" class="proj-link">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-thumb"><img src="https://favoura21.github.io/stephanie-dahunsi-portfolio/assets/tracking.jpeg" alt="Business tracking website screens" /></div>
+        <div class="proj-body">
+          <span class="proj-industry">SaaS · Landing Page <span class="concept-tag">Concept</span></span>
+          <h3>Business Growth Tracker</h3>
+          <p>A conversion-focused landing page for a business analytics tool, built to turn cold visitors into signed-up trial users.</p>
+          <a href="#" class="proj-link">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+  <div class="proj-thumb"><img src="https://favoura21.github.io/stephanie-dahunsi-portfolio/assets/finance.jpg" alt="Finivax finance app screens" /></div>
+  <div class="proj-body">
+    <span class="proj-industry">Fintech · Mobile App <span class="concept-tag">Concept</span></span>
+    <h3>Finivax Finance App</h3>
+    <p>A secure, everyday money app for saving, spending and investing, designed to make a person's finances feel manageable at a glance.</p>
+    <a href="finivax.html" class="proj-link">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-thumb"><img src="https://favoura21.github.io/stephanie-dahunsi-portfolio/assets/resin.jpg" alt="ZIBAHRT Resin brand identity" /></div>
+        <div class="proj-body">
+          <span class="proj-industry">Retail · Brand Identity</span>
+          <h3>ZIBAHRT Resin</h3>
+          <p>A full brand identity, including logo, palette and style guide, built to give a handmade resin business a premium, consistent look across every touchpoint.</p>
+          <a href="#" class="proj-link">View Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="about" style="background:var(--gray-50);">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <img src="https://favoura21.github.io/stephanie-dahunsi-portfolio/assets/picture.jpeg" alt="Stephanie Dahunsi" />
+    </div>
+    <div class="reveal">
+      <p class="about-quote">"I believe good design solves <span>business problems</span>, not just visual problems."</p>
+      <div class="about-body">
+        <p>I got into design almost by accident. I was studying Computer Science and kept gravitating toward the parts of a build where the interface didn't quite work for the person using it. Fixing that turned out to be the part I liked most.</p>
+        <p>What excites me now is the handoff between research and interface: taking what real users actually do, and turning it into a flow that feels obvious in hindsight. I enjoy working with startups and small teams especially, where design decisions are visible quickly, not months later.</p>
+        <p>I've worked across fintech, SaaS, consumer apps and retail brands: different industries, same question every time. What does this business need this screen to do?</p>
+      </div>
+      <div class="about-tags">
+        <span class="tag">Fintech</span>
+        <span class="tag">SaaS</span>
+        <span class="tag">Consumer Apps</span>
+        <span class="tag">Retail &amp; Brand</span>
+        <span class="tag">Figma</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Services</span>
+      <h2>Where I can help.</h2>
+      <p>Four ways to bring me into a project, from a single audit to a full product design engagement.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card reveal">
+        <div class="serv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6D5EF7" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <h3>Product Design</h3>
+        <p>User-centered product experiences, from first sketch to a polished, dev-ready flow.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6D5EF7" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>UX Audit</h3>
+        <p>A structured review of an existing product to find where usability is costing you conversions.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6D5EF7" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h9l5 5v11a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M13 3v5h5"/></svg></div>
+        <h3>Landing Page Design</h3>
+        <p>High-converting landing pages built around a single clear job: getting the visitor to act.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6D5EF7" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+        <h3>Design Systems</h3>
+        <p>Scalable component libraries that keep a growing product consistent as more people build on it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--gray-50);">
+  <div class="wrap">
+    <div class="process-wrap">
+      <div class="sec-head reveal" style="margin-bottom:36px;">
+        <span class="sec-eyebrow" style="color:#A99BFF;">How We'd Work Together</span>
+        <h2>Six steps, start to launch.</h2>
+        <p>The same sequence every time, so you always know what's next and why.</p>
+      </div>
+      <div class="process-list">
+        <div class="proc-step reveal"><div class="proc-num">01</div><div class="proc-text"><h4>Discover</h4><p>Understand the business goal behind the screen.</p></div></div>
+        <div class="proc-step reveal"><div class="proc-num">02</div><div class="proc-text"><h4>Research</h4><p>Competitor analysis and user interviews to find real pain points.</p></div></div>
+        <div class="proc-step reveal"><div class="proc-num">03</div><div class="proc-text"><h4>Wireframe</h4><p>Low-fidelity structure, tested before a single pixel is polished.</p></div></div>
+        <div class="proc-step reveal"><div class="proc-num">04</div><div class="proc-text"><h4>Design</h4><p>High-fidelity screens built on a consistent design system.</p></div></div>
+        <div class="proc-step reveal"><div class="proc-num">05</div><div class="proc-text"><h4>Prototype</h4><p>An interactive Figma prototype you can click through and test.</p></div></div>
+        <div class="proc-step reveal"><div class="proc-num">06</div><div class="proc-text"><h4>Launch</h4><p>Handoff to engineering, with QA support through launch.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Why Work With Me</span>
+      <h2>What you can expect, every project.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal"><div class="why-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><div><h4>Business-focused</h4><p>Every decision ties back to a goal you actually care about.</p></div></div>
+      <div class="why-item reveal"><div class="why-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><div><h4>Fast communication</h4><p>Clear updates, no chasing me down for a status check.</p></div></div>
+      <div class="why-item reveal"><div class="why-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><div><h4>User-centered</h4><p>Decisions backed by research, not just personal taste.</p></div></div>
+      <div class="why-item reveal"><div class="why-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><div><h4>Pixel-perfect UI</h4><p>Handoff files that developers don't have to guess at.</p></div></div>
+      <div class="why-item reveal"><div class="why-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><div><h4>Responsive</h4><p>Every screen designed for desktop, tablet and mobile from day one.</p></div></div>
+      <div class="why-item reveal"><div class="why-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><div><h4>Collaborative</h4><p>I work alongside your team, not in a black box.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" style="background:var(--gray-50);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Testimonials</span>
+      <h2>What clients say.</h2>
+    </div>
+    <div class="test-grid test-grid-2">
+      <div class="test-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="quote">[Testimonial coming soon.]</p>
+        <div class="test-person">
+          <div class="test-avatar">OS</div>
+          <div><strong>Oladitit Sodiq</strong><span>Atoms Hub Technologies · PayUrDues</span></div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="quote">[Testimonial coming soon.]</p>
+        <div class="test-person">
+          <div class="test-avatar">DD</div>
+          <div><strong>Dahunsi Delight</strong><span>CEO, Zibahrt Resin</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="test-note">Testimonial text to be added.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-wrap">
+    <div class="contact-info reveal">
+      <h2>Let's build something users will love.</h2>
+      <p class="warm-line">Have an idea or redesign in mind? I'd love to hear about it and explore how we can make it happen.</p>
+      <p>Tell me a bit about the project and I'll get back to you within one business day to schedule a discovery call.</p>
+      <div class="contact-alt">
+        <a href="mailto:hello@stephaniedahunsi.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg> hello@stephaniedahunsi.com</a>
+        <a href="https://www.linkedin.com/in/stephanie-dahunsi-2537a3267/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 018 0v8"/></svg> LinkedIn</a>
+        <a href="https://wa.me/2348092200632" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-12.9 7.3L3 20l1.3-5A8.5 8.5 0 1121 11.5z"/></svg> +234 809 220 0632</a>
+      </div>
+    </div>
+    <form class="form-card reveal"
+      action="https://formspree.io/f/xyzdoqek"
+      method="POST">
+  <div class="form-row">
+    <div class="field">
+      <label for="name">Name</label>
+      <input id="name"
+             name="name"
+             type="text"
+             required
+             placeholder="Your name">
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email"
+             name="email"
+             type="email"
+             required
+             placeholder="you@company.com">
+    </div>
+  </div>
+  <div class="field">
+    <label for="company">Company</label>
+    <input id="company"
+           name="company"
+           type="text"
+           placeholder="Company (optional)">
+  </div>
+  <div class="field">
+    <label for="budget">Budget</label>
+    <select id="budget" name="budget">
+      <option>Under $1,000</option>
+      <option>$1,000 – $3,000</option>
+      <option>$3,000 – $8,000</option>
+      <option>$8,000+</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="desc">Project Description</label>
+    <textarea id="desc"
+              name="message"
+              rows="4"
+              required
+              placeholder="What are you building, and what's the goal?"></textarea>
+  </div>
+  <button type="submit" class="btn btn-accent">
+    Send Message
+  </button>
+</form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a href="#home" class="logo">Stephanie<span>.</span>Dahunsi</a>
+      <ul class="foot-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="foot-social">
+        <a href="https://www.linkedin.com/in/stephanie-dahunsi-2537a3267/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 018 0v8"/></svg></a>
+        <a href="https://x.com/Designsbysteph_" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Stephanie Dahunsi. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
